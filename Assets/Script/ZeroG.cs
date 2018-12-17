@@ -4,27 +4,29 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class ZeroG : MonoBehaviour {
-	Rigidbody rb;
+	Rigidbody2D rb;
     Vector3 dir;
+    float thrust = 1;
 
-	void Start () {
-		rb = GetComponent<Rigidbody> ();
+
+    void Start () {
+        rb = GetComponent<Rigidbody2D> ();
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (Input.GetKey(KeyCode.W)) {
-			rb.AddForce (0, 1, 0);
+			rb.AddForce (new Vector2(0, 1.0f));
 		}
 		if (Input.GetKey(KeyCode.S)) {
-			rb.AddForce (0, -1, 0);
+			rb.AddForce (new Vector2(0, -1.0f));
 		}
 		if (Input.GetKey(KeyCode.A)) {
-			rb.AddForce (-1, 0, 0);
+            rb.AddForce (new Vector2(-1.0f, 0));
 		}
 		if (Input.GetKey(KeyCode.D)) {
-			rb.AddForce (1, 0, 0);
-		}
+			rb.AddForce(new Vector2(1.0f, 0));
+        }
 
 		transform.Rotate( rb.velocity);
         float h = (Input.GetAxisRaw("Horizontal"));
