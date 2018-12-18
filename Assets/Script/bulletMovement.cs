@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class bulletMovement : MonoBehaviour {
 
-	Rigidbody rb;
+	Rigidbody2D rb;
+
 	public float bulletSpeed = 0.5f;
-	// Use this for initialization
-	void Start () {
-		rb = GetComponent<Rigidbody> ();
-		rb.AddRelativeForce (0, bulletSpeed, 0, ForceMode.Impulse);
-		//transform.GetChild(0).GetComponent<PartlesAreaManipulator>().particlesArea;
+
+    void Start () {
+		rb = GetComponent<Rigidbody2D> ();
+		rb.AddRelativeForce (new Vector2(0, bulletSpeed), ForceMode2D.Impulse);
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		//transform.Translate (0, bulletSpeed, 0);
 		Destroy (gameObject, 2.0f);
 	}
 }
