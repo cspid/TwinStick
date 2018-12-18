@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using Rewired;
 
 public class ZeroG : MonoBehaviour {
 	Rigidbody2D rb;
@@ -12,6 +13,7 @@ public class ZeroG : MonoBehaviour {
     float startThrust;
     public float brakeDrag = 2;
     float startDrag;
+    int player;
 
 
 
@@ -19,7 +21,7 @@ public class ZeroG : MonoBehaviour {
         rb = GetComponent<Rigidbody2D> ();
         startThrust = thrust;
         startDrag = rb.drag;
-       
+        
 	}
 
 	// Update is called once per frame
