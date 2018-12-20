@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 269956379}
   - component: {fileID: 269956374}
   - component: {fileID: 269956373}
+  - component: {fileID: 269956378}
   m_Layer: 10
   m_Name: Player (red)
   m_TagString: Untagged
@@ -414,6 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9484ab513e1c704aac332c7351663aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 0
   thrustBoost: 4
   brakeDrag: 2
 --- !u!222 &269956376
@@ -446,6 +448,21 @@ RectTransform:
   m_AnchoredPosition: {x: 16.595, y: -2.67}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &269956378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269956371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!114 &269956379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,8 +475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11706575b56d4094bab27c9295babda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0.15
   recoil: 0.8
+  timer: 0.15
   bullet: {fileID: 1487858900195202, guid: c6a695e77c848a34caa943601bf6f37a, type: 3}
   turretR: {fileID: 1922655456}
   turretL: {fileID: 1899090250}
@@ -1138,6 +1155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9484ab513e1c704aac332c7351663aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 0
   thrustBoost: 2
   brakeDrag: 0
 --- !u!50 &593410303
@@ -1338,7 +1356,7 @@ MonoBehaviour:
       _excludeFromControllerAutoAssignment: 1
     - _id: 1
       _name: Player0
-      _descriptiveName: Player0
+      _descriptiveName: Main Player
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
@@ -1361,6 +1379,60 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
+    - _id: 1
+      _name: Move Horizontal
+      _type: 0
+      _descriptiveName: Move Horizontal
+      _positiveDescriptiveName: Right
+      _negativeDescriptiveName: Left
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 2
+      _name: Move Vertical
+      _type: 0
+      _descriptiveName: Move Vertical
+      _positiveDescriptiveName: Up
+      _negativeDescriptiveName: Down
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 3
+      _name: Brake
+      _type: 1
+      _descriptiveName: Brake
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 4
+      _name: Thrust
+      _type: 1
+      _descriptiveName: Thrust
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 5
+      _name: Right Stick Vertical
+      _type: 0
+      _descriptiveName: Right Stick Vertical
+      _positiveDescriptiveName: Up Right Stick
+      _negativeDescriptiveName: Down Right Stick
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 6
+      _name: Right Stick Horizontal
+      _type: 0
+      _descriptiveName: Right Stick Horizontal
+      _positiveDescriptiveName: Right
+      _negativeDescriptiveName: Left
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -1370,7 +1442,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 00000000
+        actionIds: 00000000010000000200000003000000040000000500000006000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -1428,7 +1500,7 @@ MonoBehaviour:
       customControllerUid: 0
       actionElementMaps:
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 1
         _elementType: 0
         _elementIdentifierId: 0
         _axisRange: 0
@@ -1439,7 +1511,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 2
         _elementType: 0
         _elementIdentifierId: 1
         _axisRange: 0
@@ -1450,7 +1522,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 6
         _elementType: 0
         _elementIdentifierId: 2
         _axisRange: 0
@@ -1461,7 +1533,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 5
         _elementType: 0
         _elementIdentifierId: 3
         _axisRange: 0
@@ -1538,7 +1610,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 3
         _elementType: 1
         _elementIdentifierId: 10
         _axisRange: 0
@@ -1593,7 +1665,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 4
         _elementType: 1
         _elementIdentifierId: 14
         _axisRange: 0
@@ -1663,7 +1735,7 @@ MonoBehaviour:
     customControllerMaps: []
     customControllers: []
     playerIdCounter: 2
-    actionIdCounter: 1
+    actionIdCounter: 7
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1
@@ -2329,8 +2401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11706575b56d4094bab27c9295babda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0.15
   recoil: 0.1
+  timer: 0.15
   bullet: {fileID: 1487858900195202, guid: c6a695e77c848a34caa943601bf6f37a, type: 3}
   turretR: {fileID: 0}
   turretL: {fileID: 0}
@@ -2354,6 +2426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9484ab513e1c704aac332c7351663aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 0
   thrustBoost: 4
   brakeDrag: 2
 --- !u!114 &937899833
@@ -2496,8 +2569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11706575b56d4094bab27c9295babda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0.15
   recoil: 0.1
+  timer: 0.15
   bullet: {fileID: 1487858900195202, guid: c6a695e77c848a34caa943601bf6f37a, type: 3}
   turretR: {fileID: 0}
   turretL: {fileID: 0}
@@ -2521,6 +2594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9484ab513e1c704aac332c7351663aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 0
   thrustBoost: 4
   brakeDrag: 2
 --- !u!114 &993687471

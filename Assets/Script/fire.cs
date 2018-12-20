@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class fire : MonoBehaviour {
 
 
-    public float timer = 1;
+
+    ZeroG zeroG;
     public float recoil;
     float time;
+    public float timer = 0.2f;
     public GameObject bullet;
     bool canFire;
     public Transform turretR;
@@ -16,12 +19,17 @@ public class fire : MonoBehaviour {
     GameObject newBullet;
     Vector3 spawnDir;
     Vector3 relativePos;
+    Player player;
+    int playerID;
 
 
     private void Start()
     {
         //sibling = transform.parent.GetChild(1);
         rb = GetComponent<Rigidbody2D>();
+        zeroG = GetComponent<ZeroG>();
+        
+        player = ReInput.players.GetPlayer(zeroG.playerID);
 
     }
     void Update () {
@@ -30,14 +38,15 @@ public class fire : MonoBehaviour {
         relativePos = new Vector3(rb.velocity.x, rb.velocity.y, 0);
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
 
-        if (Input.GetAxisRaw("Fire") > 0)
+        if (player.GetAxisRaw("Fire") > 0)
     {
         Wait();
         if (canFire == true)
         {
              //if  we're not using the right stick, use the left
             print("Firing");
-                if ((Input.GetAxisRaw("R_Horizontal") > -0.1f) && (Input.GetAxisRaw("R_Horizontal") < 0.1f) && (Input.GetAxisRaw("R_Vertical") > -0.1f) && (Input.GetAxisRaw("R_Vertical") < 0.1f))
+
+                if ((player.GetAxisRaw("Right Stick Horizontal") > -0.1f) && (player.GetAxisRaw("Right Stick Horizontal") < 0.1f) && (player.GetAxisRaw("Right Stick Vertical") > -0.1f) && (player.GetAxisRaw("Right Stick Vertical") < 0.1f))
                 {
                     //  newBullet = Instantiate(bullet, transform.position, Quaternion.LookRotation(new Vector3(rb.velocity.x, rb.velocity.y, 0), Vector3.forward * -1));
 

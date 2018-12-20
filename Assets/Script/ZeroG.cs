@@ -5,6 +5,7 @@ using UnityStandardAssets.CrossPlatformInput;
 using Rewired;
 
 public class ZeroG : MonoBehaviour {
+    public int playerID;
 	Rigidbody2D rb;
     Vector3 dir;
     float thrust = 1;
@@ -13,7 +14,7 @@ public class ZeroG : MonoBehaviour {
     float startThrust;
     public float brakeDrag = 2;
     float startDrag;
-    int player;
+    Player player;
 
 
 
@@ -21,19 +22,20 @@ public class ZeroG : MonoBehaviour {
         rb = GetComponent<Rigidbody2D> ();
         startThrust = thrust;
         startDrag = rb.drag;
-        
-	}
 
-	// Update is called once per frame
-	void FixedUpdate () {
+        player = ReInput.players.GetPlayer(playerID);
+    }
+
+    // Update is called once per frame
+    void FixedUpdate () {
 		
 		
 		transform.Rotate( rb.velocity);
-        float h = (Input.GetAxisRaw("Horizontal"));
-        float v = (Input.GetAxisRaw("Vertical"));
+        float h = (player.GetAxisRaw("Move Horizontal"));
+        float v = (player.GetAxisRaw("Move Vertical"));
 
         //Brake
-        if (Input.GetButton("Brake"))
+        if (player.GetButton("Fire"))
         {
             print("Brake");
             rb.drag = brakeDrag;
@@ -45,7 +47,7 @@ public class ZeroG : MonoBehaviour {
 
 
         //Acceleate
-        if (Input.GetButton("Thrust"))
+        if (player.GetButton("Thrust"))
         {
             print("accelerate");
             thrust = thrustBoost;
