@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224625903157921758}
   - component: {fileID: 212656376815663306}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 114575933161798054}
   - component: {fileID: 6082019413653359816}
   - component: {fileID: 4091930132891939755}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9484ab513e1c704aac332c7351663aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 0
   thrustBoost: 2
   brakeDrag: 0
 --- !u!222 &222642914755991862
@@ -233,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4404501422346744}
   - component: {fileID: 114741858530290324}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Material
   m_TagString: Untagged
   m_Icon: {fileID: 0}

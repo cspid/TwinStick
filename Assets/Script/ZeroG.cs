@@ -14,7 +14,7 @@ public class ZeroG : MonoBehaviour {
     float startThrust;
     public float brakeDrag = 2;
     float startDrag;
-    Player player;
+    public Player player;
 
 
 
