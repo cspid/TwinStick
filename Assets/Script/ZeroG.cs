@@ -35,7 +35,7 @@ public class ZeroG : MonoBehaviour {
         float v = (player.GetAxisRaw("Move Vertical"));
 
         //Brake
-        if (player.GetButton("Fire"))
+        if (player.GetButton("Brake"))
         {
             print("Brake");
             rb.drag = brakeDrag;

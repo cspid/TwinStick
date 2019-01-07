@@ -15,6 +15,7 @@ public class fire : MonoBehaviour {
     bool canFire;
     public Transform turretR;
     public Transform turretL;
+    public Transform spawnPoint;
     Rigidbody2D rb;
     GameObject newBullet;
     Vector3 spawnDir;
@@ -53,7 +54,8 @@ public class fire : MonoBehaviour {
                   //  var angle = Mathf.Atan2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * Mathf.Rad2Deg;
                    // transform.rotation = Quaternion.Euler(0, 0, angle + 90);
 
-                    newBullet = Instantiate(bullet, transform.position, turretL.rotation);
+                    newBullet = Instantiate(bullet, spawnPoint.position, turretL.rotation);
+                   // newBullet.GetComponent<lineRendBullet>().firePoint = spawnPoint;
 
 
                     newBullet.transform.parent = null;
@@ -63,7 +65,9 @@ public class fire : MonoBehaviour {
                 }
                 else
                 {
-                    newBullet = Instantiate(bullet, transform.position, turretR.rotation);
+                    newBullet = Instantiate(bullet, spawnPoint.position, turretR.rotation);
+                    //newBullet.GetComponent<lineRendBullet>().firePoint = spawnPoint;
+
                     newBullet.transform.parent = null;
                 }
                 canFire = false;

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 6400000}
   - component: {fileID: 2300000}
   - component: {fileID: 11400002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cocuy_Fluid
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,8 +52,8 @@ MonoBehaviour:
   m_speed: 500
   m_iterations: 50
   m_velocityDissipation: 0.9988
-  m_vorticityScale: 43.1
-  m_viscosity: 0.0155
+  m_vorticityScale: 35.8
+  m_viscosity: 0.037
   m_nResolution: 512
   m_cacheVelocity: 0
 --- !u!33 &3300000
@@ -91,7 +91,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -127,24 +127,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd61d5005fda0834f87853e9655537c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_simulation: {fileID: 11400000}
+  m_simulation: {fileID: 0}
   m_colourGradient:
     serializedVersion: 2
-    key0: {r: 0.6985294, g: 0.6574395, b: 0.66679096, a: 0}
-    key1: {r: 0.09019608, g: 0.7372549, b: 0.7019608, a: 1}
-    key2: {r: 0.78676474, g: 0.74606997, b: 0.19669119, a: 1}
-    key3: {r: 0.9191176, g: 0.49498123, b: 0.30411983, a: 0}
-    key4: {r: 0.4852941, g: 0.1106185, b: 0.18555373, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 1, g: 0.9780377, b: 0, a: 0}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 1, g: 0.85547477, b: 0.5801887, a: 1}
+    key3: {r: 1, g: 1, b: 1, a: 0}
+    key4: {r: 1, g: 1, b: 1, a: 0}
+    key5: {r: 1, g: 1, b: 1, a: 0}
+    key6: {r: 1, g: 1, b: 1, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 147
-    ctime2: 46453
-    ctime3: 60524
+    ctime0: 147
+    ctime1: 11758
+    ctime2: 54163
+    ctime3: 65342
     ctime4: 65342
-    ctime5: 0
-    ctime6: 0
+    ctime5: 65342
+    ctime6: 65342
     ctime7: 0
     atime0: 0
     atime1: 65535
@@ -155,11 +155,11 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 5
+    m_NumColorKeys: 4
     m_NumAlphaKeys: 2
   m_updateGradient: 0
   m_particleAreaShader: {fileID: 7200000, guid: 5b1f723dcb3af6b4a94e4e247231477b,
     type: 3}
-  m_densityDissipation: 0.94909996
+  m_densityDissipation: 0.927
   m_nResolution: 1024
   m_CacheParticles: 0

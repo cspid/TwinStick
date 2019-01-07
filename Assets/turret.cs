@@ -33,6 +33,6 @@ public class turret : MonoBehaviour
                 // Apply the transform to the object  
                 var angle = Mathf.Atan2(player.GetAxis("Right Stick Horizontal"), player.GetAxis("Right Stick Vertical")) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.Euler(0, 0, angle);
-                 print("h = " + player.GetAxis("Right Stick Horizontal") + "v = " + player.GetAxis("Left Stick Hoizontal"));
+              //   print("h = " + player.GetAxis("Right Stick Horizontal") + "v = " + player.GetAxis("Left Stick Hoizontal"));
     }
 }
